@@ -1,0 +1,34 @@
+{
+  "name": "wdd341-smoothiexpress-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server",
+    "swagger": "node ./swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregazores/wdd341-smoothiexpress-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregazores/wdd341-smoothiexpress-api/issues"
+  },
+  "homepage": "https://github.com/gregazores/wdd341-smoothiexpress-api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "swagger-ui-express": "^4.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "swagger-autogen": "^2.23.1"
+  }
+}

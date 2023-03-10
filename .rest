@@ -1,0 +1,77 @@
+###  LOCALHOST 
+GET http://localhost:8000/balanced-fusions
+
+###  
+GET http://localhost:8000/fruit-blend
+
+###  
+GET http://localhost:8000/super-veggies
+
+###  GET SINGLE
+GET http://localhost:8000/balanced-fusions/64097255a49504dccb07f3f0
+
+###  
+GET http://localhost:8000/fruit-blend/64097208a49504dccb06e1e5
+
+###  
+GET http://localhost:8000/super-veggies/640972aaa49504dccb0948e5
+
+###  INSERT DATA 
+POST http://localhost:8000/balanced-fusions HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO3322", "name": "AVOCOLADA3322", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  
+POST http://localhost:8000/fruit-blend HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO44", "name": "AVOCOLADA44", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  
+POST http://localhost:8000/super-veggies HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO555", "name": "AVOCOLADA555", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  UPDATE DATA 
+PUT http://localhost:8000/balanced-fusions/6409c1125bd00d0b22dd7ed5 HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO3322", "name": "AVOCOLADA4455", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  
+PUT http://localhost:8000/fruit-blend/6409c11e5bd00d0b22dd7ed6 HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO44", "name": "AVOCOLADA44111", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  
+PUT http://localhost:8000/super-veggies/6409c12f5bd00d0b22dd7ed7 HTTP/1.1 
+content-type: application/json
+
+{
+"id": "AVO555", "name": "AVOCOLADA666", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+}
+
+###  DELETE DATA 
+DELETE http://localhost:8000/balanced-fusions/6409c0503f4a239b12dc562c HTTP/1.1 
+content-type: application/json
+
+###  
+DELETE http://localhost:8000/fruit-blend/6409c11e5bd00d0b22dd7ed6 HTTP/1.1 
+content-type: application/json
+
+###  
+DELETE http://localhost:8000/super-veggies/6409c12f5bd00d0b22dd7ed7 HTTP/1.1 
+content-type: application/json
