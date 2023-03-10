@@ -6,6 +6,8 @@ const superVeggiesRouter = require('./superVeggies');
 const smoothieController = require('../controller'); 
 // const swaggerRouter = require('./swagger');
 
+router.use('/public', express.static('public'))
+
 router.use('/balanced-fusions', balancedFusionsRouter)
 router.use('/fruit-blend', fruitBlendRouter)
 router.use('/super-veggies', superVeggiesRouter)

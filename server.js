@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
+// app.use('/images', express.static('images'))
+
 app.use(express.urlencoded({extended: false}))
 //so we can use json data as well
 app.use(express.json())

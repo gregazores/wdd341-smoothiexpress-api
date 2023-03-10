@@ -1,6 +1,6 @@
 https://smoothiexpress-api.onrender.com/
 
-http://localhost:8080/api-docs => API DOCS LINK
+http://localhost:8000/api-docs => API DOCS LINK
 
 https://smoothiexpress-api.onrender.com/api-docs => API DOCS LINK
 

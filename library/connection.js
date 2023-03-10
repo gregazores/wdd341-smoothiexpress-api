@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 //export MongoClient, and that’s what we’ll use to connect to a MongoDB database
 const {MongoClient, ServerApiVersion} = require('mongodb');
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 let _db
 // const uri = 'mongodb+srv://jeeveegreg:Xj1bx5bwdFGlFKnF@cluster0.y6f6qac.mongodb.net/ContactsDB?retryWrites=true&w=majority'
