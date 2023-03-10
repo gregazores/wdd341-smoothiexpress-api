@@ -13,4 +13,8 @@ router.use('/super-veggies', superVeggiesRouter)
 
 // router.get('/', smoothieController.rootResponse);
 
+router.get('/', (req, res, next) => {
+    res.send('CSE 341 SMOOTHIEXPRESS API')
+});
+
 module.exports = router;
