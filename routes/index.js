@@ -5,7 +5,9 @@ const fruitBlendRouter = require('./fruitBlend');
 const superVeggiesRouter = require('./superVeggies');
 const smoothieController = require('../controller'); 
 // const swaggerRouter = require('./swagger');
+const cors = require('cors')
 
+router.use(cors())
 router.use('/public', express.static('public'))
 
 router.use('/balanced-fusions', balancedFusionsRouter)
