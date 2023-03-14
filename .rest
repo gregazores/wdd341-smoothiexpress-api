@@ -21,7 +21,7 @@ POST http://localhost:8000/balanced-fusions HTTP/1.1
 content-type: application/json
 
 {
-"id": "AVO3322", "name": "AVOCOLADA3322", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "$9.19", "calories": "600 Calories", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
+"id": "AVO3322", "name": "AVOCOLADA3322", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": 9.19, "calories": 600, "ingredients": "avocado, pineapple, spinach, kale, coconut & lime"
 }
 
 ###  

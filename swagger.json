@@ -1,0 +1,288 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Contacts API",
+      "version": "0.0.1",
+      "description": "REST CONTACTS API (WDD341) by Greg Azores",
+      "termsOfService": "http://swagger.io/terms/"
+    },
+    "host": "smoothiexpress-api.onrender.com",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "tags": [
+        {
+            "name": "balanced-fusions",
+            "description": "Requests using the balanced-fusions endpoint"
+        },
+        {
+            "name": "fruit-blend",
+            "description": "Requests using the fruit-blend endpoint"
+        },
+        {
+            "name": "super-veggies",
+            "description": "Requests using the super-veggies endpoint"
+        }
+
+    ],
+    "paths": {
+
+      "/balanced-fusions/": {
+        "get": {
+          "tags": ["balanced-fusions"],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        },
+        "post": {
+          "tags": ["balanced-fusions"],
+          "description": "Add new smoothie for Balanced Fusion.",
+          "parameters": [
+              {
+                  "name": "body",
+                  "in": "body",
+                  "required": true,
+                  "schema": {
+                      "$ref": "#/components/schemas/smoothies"
+                  }
+                      
+              }
+          ],
+          "responses": {}
+        }
+      },
+
+      "/balanced-fusions/{id}": {
+        "get": {
+          "tags": ["balanced-fusions"],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        },
+        "put": {
+          "tags": ["balanced-fusions"],
+          "description": "Add a smoothie under Balanced Fusion based on the _id.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                  "$ref": "#/components/schemas/smoothies"
+              }
+            }
+          ],
+          "responses": {}
+        },
+        "delete": {
+          "tags": ["balanced-fusions"],
+          "description": "Delete a smoothie under Balanced Fusion based on _id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        }
+      },
+
+      "/fruit-blend/": {
+        "get": {
+          "tags": ["fruit-blend"],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        },
+        "post": {
+          "tags": ["fruit-blend"],
+          "description": "Add new smoothie for Fruit Blend.",
+          "parameters": [
+              {
+                  "name": "body",
+                  "in": "body",
+                  "required": true,
+                  "schema": {
+                      "$ref": "#/components/schemas/smoothies"
+                  }
+                      
+              }
+          ],
+          "responses": {}
+        }
+      },
+
+      "/fruit-blend/{id}": {
+        "get": {
+          "tags": ["fruit-blend"],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        },
+        "put": {
+          "tags": ["fruit-blend"],
+          "description": "Add a smoothie under Fruit Blend based on the _id.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                  "$ref": "#/components/schemas/smoothies"
+              }
+            }
+          ],
+          "responses": {}
+        },
+        "delete": {
+          "tags": ["fruit-blend"],
+          "description": "Delete a smoothie under Fruit Blend based on _id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        }
+      },
+
+      "/super-veggies/": {
+        "get": {
+          "tags": ["super-veggies"],
+          "description": "",
+          "parameters": [],
+          "responses": {}
+        },
+        "post": {
+          "tags": ["super-veggies"],
+          "description": "Add new smoothie for Super Veggies.",
+          "parameters": [
+              {
+                  "name": "body",
+                  "in": "body",
+                  "required": true,
+                  "schema": {
+                      "$ref": "#/components/schemas/smoothies"
+                  }
+                      
+              }
+          ],
+          "responses": {}
+        }
+      },
+
+      "/super-veggies/{id}": {
+        "get": {
+          "tags": ["super-veggies"],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        },
+        "put": {
+          "tags": ["super-veggies"],
+          "description": "Add a smoothie under Super Veggies based on the _id.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                  "$ref": "#/components/schemas/smoothies"
+              }
+            }
+          ],
+          "responses": {}
+        },
+        "delete": {
+          "tags": ["super-veggies"],
+          "description": "Delete a smoothie under Super Veggies based on _id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {}
+        }
+      }
+
+    },
+  
+    "components": {
+      "schemas": {
+          "smoothies": {
+              "type": "object",
+              "properties": {
+                  "name": {
+                      "example": "ISLAND GREEN"
+                  },
+                  "image": {
+                      "example": "public/images/IslandGreen.png"
+                  },
+                  "alt": {
+                      "example": "PICTURE OF ISLAND GREEN SMOOTHIE"
+                  },
+                  "price": {
+                      "example": 7.99
+                  },
+                  "calories": {
+                      "example": 410
+                  },
+                  "ingredients": {
+                    "example": "spinach, kale, mango, pineapple & banana"
+                  },
+                  "quantity": {
+                    "example": 1
+                  }
+              }
+          }
+      }
+  }
+  }
