@@ -1,22 +1,28 @@
 //import our connection model
 const mongodb = require('../library/connection');
 const ObjectId = require('mongodb').ObjectId;
+const {smoothieSchema} = require('../library/validationSchema')
 
 async function gettingAll(req, res, next, endpoint) {
-    // console.log("Inside Model", endpoint)
-    const result = await mongodb.getDb().db().collection(endpoint).find();
-    // console.log("inside gettingAll",res)
-    result.toArray().then((lists) => {
-        // console.log("list", lists)
-        //There are a few types of HTTP request body types. 
-        //For an example, application/x-www-form-urlencoded is the default body type for forms
-        //whereas application/json is something we'd use when requesting a resource using jQuery or backend REST client.
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists);
-      });
+  try {
+      // console.log("Inside Model", endpoint)
+      const result = await mongodb.getDb().db().collection(endpoint).find();
+      // console.log("inside gettingAll",res)
+      result.toArray().then((lists) => {
+          // console.log("list", lists)
+          //There are a few types of HTTP request body types. 
+          //For an example, application/x-www-form-urlencoded is the default body type for forms
+          //whereas application/json is something we'd use when requesting a resource using jQuery or backend REST client.
+          res.setHeader('Content-Type', 'application/json');
+          res.status(200).json(lists);
+        });
+  } catch (error) {
+      res.status(502).json("Failed to retrieve your data to the database. Please try again later");
+  }
 }
 
 async function gettingSingle(req, res, next, endpoint) {
+  try {
     const userId = new ObjectId(req.params.id);
     const result =  await mongodb
       .getDb()
@@ -28,44 +34,60 @@ async function gettingSingle(req, res, next, endpoint) {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
     });
+  } catch (error) {
+    res.status(502).json("Failed to retrieve your data to the database. Please try again later");
+  }
 }
 
 async function creatingItem(req, res, next, endpoint) {
-    const smoothie = {
-        id: req.body.id,
-        name: req.body.name,
-        image: req.body.image,
-        price: req.body.price,
-        calories: req.body.calories,
-        ingredients: req.body.ingredients,
-      };
-    //   console.log("inside creatingItem endpoint", endpoint)
-    const response = await mongodb.getDb().db().collection(endpoint).insertOne(smoothie);
+  try {
+    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity) {
+      res.status(400).send({ message: 'Content can not be empty!' });
+      return;
+    }
+
+    const smoothieEntries = await smoothieSchema.validateAsync(req.body)
+
+    if (smoothieEntries.error) {
+      res.status(400).send({ message: smoothieEntries.error });
+      return;
+    }
+
+    const response = await mongodb.getDb().db().collection(endpoint).insertOne(smoothieEntries);
     if (response.acknowledged) {
         // console.log("inside creatingItem", response)
       res.setHeader('Content-Type', 'application/json');
       res.status(201).json(response);
+
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the item.');
     }
+    } catch (err) {
+      res.status(502).json("Failed to insert your data to the database. Please try again later");
+  }
 }
 
 async function updatingItem(req, res, next, endpoint) {
+  try {
     const userId = new ObjectId(req.params.id);
-    //updateOne will only let you update specific fields
-    const smoothie = {
-        id: req.body.id,
-        name: req.body.name,
-        image: req.body.image,
-        price: req.body.price,
-        calories: req.body.calories,
-        ingredients: req.body.ingredients,
-      };
+    
+    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity) {
+      res.status(400).send({ message: 'Content can not be empty!' });
+      return;
+    }
+
+    const smoothieEntries = await smoothieSchema.validateAsync(req.body)
+
+    if (smoothieEntries.error) {
+      res.status(400).send({ message: smoothieEntries.error });
+      return;
+    }
+
     const response = await mongodb
       .getDb()
       .db()
       .collection(endpoint)
-      .replaceOne({ _id: userId }, smoothie);
+      .replaceOne({ _id: userId }, smoothieEntries);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.setHeader('Content-Type', 'application/json');
@@ -73,9 +95,13 @@ async function updatingItem(req, res, next, endpoint) {
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the item.');
     }
+  } catch (error) {
+    res.status(502).json("Failed to update your data to the database. Please try again later");
+  }
 }
 
 async function deletingItem(req, res, next, endpoint) {
+  try {
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection(endpoint).deleteOne({ _id: userId }, true);
     if (response.deletedCount > 0) {
@@ -84,6 +110,10 @@ async function deletingItem(req, res, next, endpoint) {
     } else {
       res.status(500).json(response.error || 'Some error occurred while deleting the item.');
     }
+    
+  } catch (error) {
+    res.status(502).json("Failed to delete your data to the database. Please try again later");
+  }
 }
 
 module.exports = { 
