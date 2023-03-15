@@ -63,9 +63,8 @@ async function creatingItem(req, res, next, endpoint) {
       res.status(500).json(response.error || 'Some error occurred while creating the item.');
     }
     } catch (error) {
-      res.status(502).json(error || "Failed to insert your data to the database. Please try again later");
       if(error.isJoi ===true) error.status = 422
-      
+      res.status(502).json(error || "Failed to insert your data to the database. Please try again later"); 
   }
 }
 
