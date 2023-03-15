@@ -45,7 +45,7 @@ PUT http://localhost:8000/balanced-fusions/641181f04583b462339c645c HTTP/1.1
 content-type: application/json
 
 {
-"name": "AVOCOLADA44667855", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "9.19", "calories": "600", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime", "quantity": 1
+"name": "AVOCOLADA44667855", "image": "../images/smoothies_imgs/SuperSunriseSmoothie.png", "alt": "AVOCOLADA", "price": "9.19", "calories": "600 cal", "ingredients": "avocado, pineapple, spinach, kale, coconut & lime", "quantity": 1
 }
 
 ###  

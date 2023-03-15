@@ -17,7 +17,7 @@ async function gettingAll(req, res, next, endpoint) {
           res.status(200).json(lists);
         });
   } catch (error) {
-      res.status(502).json("Failed to retrieve your data to the database. Please try again later");
+      res.status(502).json(error || "Failed to retrieve your data to the database. Please try again later");
   }
 }
 
@@ -35,7 +35,7 @@ async function gettingSingle(req, res, next, endpoint) {
     res.status(200).json(lists[0]);
     });
   } catch (error) {
-    res.status(502).json("Failed to retrieve your data to the database. Please try again later");
+    res.status(502).json(error || "Failed to retrieve your data to the database. Please try again later");
   }
 }
 
@@ -63,7 +63,8 @@ async function creatingItem(req, res, next, endpoint) {
       res.status(500).json(response.error || 'Some error occurred while creating the item.');
     }
     } catch (err) {
-      res.status(502).json("Failed to insert your data to the database. Please try again later");
+      if(error.isJoi ===true) error.status = 422
+      res.status(502).json(error || "Failed to insert your data to the database. Please try again later");
   }
 }
 
@@ -96,7 +97,8 @@ async function updatingItem(req, res, next, endpoint) {
       res.status(500).json(response.error || 'Some error occurred while updating the item.');
     }
   } catch (error) {
-    res.status(502).json("Failed to update your data to the database. Please try again later");
+    if(error.isJoi ===true) error.status = 422
+    res.status(502).json(error || "Failed to update your data to the database. Please try again later");
   }
 }
 
@@ -112,7 +114,7 @@ async function deletingItem(req, res, next, endpoint) {
     }
     
   } catch (error) {
-    res.status(502).json("Failed to delete your data to the database. Please try again later");
+    res.status(502).json(error || "Failed to delete your data to the database. Please try again later");
   }
 }
 
