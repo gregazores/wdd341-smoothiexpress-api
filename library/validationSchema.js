@@ -1,13 +1,13 @@
 const Joi = require('@hapi/joi')
 
 const smoothieSchema = Joi.object({
-    name: Joi.string().uppercase(),
-    image: Joi.string(),
-    alt: Joi.string().uppercase(),
-    price: Joi.number(),
-    calories: Joi.number().integer(),
-    ingredients: Joi.string().lowercase(),
-    quantity: Joi.number().integer()
+    name: Joi.string().uppercase().required(),
+    image: Joi.string().required(),
+    alt: Joi.string().uppercase().required(),
+    price: Joi.number().required(),
+    calories: Joi.number().integer().required(),
+    ingredients: Joi.string().lowercase().required(),
+    quantity: Joi.number().integer().required()
 })
 
 module.exports = {
