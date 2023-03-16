@@ -280,6 +280,9 @@
                   },
                   "quantity": {
                     "example": 1
+                  },
+                  "category": {
+                    "example": "super-veggies"
                   }
               }
           }

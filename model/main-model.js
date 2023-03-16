@@ -41,7 +41,7 @@ async function gettingSingle(req, res, next, endpoint) {
 
 async function creatingItem(req, res, next, endpoint) {
   try {
-    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity) {
+    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity || !req.body.category) {
       res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }
@@ -72,7 +72,7 @@ async function updatingItem(req, res, next, endpoint) {
   try {
     const userId = new ObjectId(req.params.id);
     
-    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity) {
+    if (!req.body.name || !req.body.image || !req.body.price || !req.body.calories || !req.body.ingredients || !req.body.quantity || !req.body.category) {
       res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }

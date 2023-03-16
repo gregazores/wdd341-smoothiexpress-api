@@ -7,7 +7,8 @@ const smoothieSchema = Joi.object({
     price: Joi.number().required(),
     calories: Joi.number().integer().required(),
     ingredients: Joi.string().lowercase().required(),
-    quantity: Joi.number().integer().required()
+    quantity: Joi.number().integer().required(),
+    category: Joi.string().uppercase().required()
 })
 
 module.exports = {
